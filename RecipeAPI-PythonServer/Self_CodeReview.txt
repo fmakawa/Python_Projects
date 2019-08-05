@@ -1,0 +1,15 @@
+There are several issues with the project as is:
+
+1. The socketserver utilized isn't robust and optimization with docker can be problematic
+2. There is no database integration within the server. As a result user data as well as recipes are
+   stored as dictionaries in lists rather than in a database. This was a design choice born out of 2
+   considerations. The first being the time needed to finish a working project. The second being that
+   I was not sure how to go about integrating postgres into this. My familiarity is with using frameworks
+   such as Django and Flask which has databases integrated already into the code. I could not figure out a 
+   way to do the same. Despite the time constraints, I still made a passing effort but could not make it
+   work.
+3. For authentication I used Basic Auth. This is not robust at all and should have used OAuth2.0 in
+   the least. It was a time consideration but as an implementation issue. The docker build does however
+   automatically create an self signed certificate to enable to run as an HTTPS server. I've disabled
+   the HTTPS function since the certificate is self signed it raises errors in Chrome. The functionality
+   is however present.
